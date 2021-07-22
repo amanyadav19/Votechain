@@ -1,0 +1,8 @@
+{
+  "name": "Votechain",
+  "version": "1.0.0",
+  "engines": {
+    "node": "16.5.x",
+    "npm": "7.20.x"
+  }
+}

@@ -1,9 +1,9 @@
-pragma solidity ^0.4.25;
+pragma solidity >=0.4.22 <0.9.0;
 
 import "./safemath.sol";
 import "./ownable.sol";
 
-contract Election {
+contract Election is Ownable{
 	using SafeMath for uint256;
 	using SafeMath32 for uint32;
 	using SafeMath16 for uint16;
@@ -16,8 +16,8 @@ contract Election {
     }
 
     mapping(address => bool) public hasVoted;
-    mapping(uint16 => Candidate) pubic candidates;
-    mapping(address => uint) public vote;
+    mapping(uint16 => Candidate) public candidates;
+    mapping(address => uint) public votes;
 
     uint16 public candidatesCount = 0;
 
@@ -39,12 +39,12 @@ contract Election {
         candidates[candidatesCount] = Candidate(name, party, 0, candidatesCount);
     }
 
-    function vote (uint _candidateId) public {
+    function vote (uint16 _candidateId) public {
         require(!hasVoted[msg.sender]);
         require(_candidateId > 0 && _candidateId <= candidatesCount);
         hasVoted[msg.sender] = true;
         candidates[_candidateId].voteCount ++;
-        vote[msg.sender] = _candidateId;
+        votes[msg.sender] = _candidateId;
         emit votedEvent(_candidateId);
     }
 }
