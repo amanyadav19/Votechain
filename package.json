@@ -1,8 +1,22 @@
 {
-  "name": "Votechain",
+  "name": "votechain",
   "version": "1.0.0",
-  "engines": {
-    "node": "16.5.x",
-    "npm": "7.20.x"
-  }
+  "description": "![Ethereum](https://img.shields.io/badge/Ethereum-A6A9AA?style=for-the-badge&logo=ethereum&logoColor=white) ![NodeJS](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white) ![npm](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "app": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amanyadav19/Votechain.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amanyadav19/Votechain/issues"
+  },
+  "homepage": "https://github.com/amanyadav19/Votechain#readme"
 }
