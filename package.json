@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "app": "node index.js"
+    "app": "node index.js",
+    "dev": "lite-server"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/amanyadav19/Votechain/issues"
   },
-  "homepage": "https://github.com/amanyadav19/Votechain#readme"
+  "homepage": "https://github.com/amanyadav19/Votechain#readme",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
 }

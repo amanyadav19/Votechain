@@ -11,7 +11,7 @@
     "prettier": "prettier --write **/*.sol",
     "slint": "solhint \"contracts/**/*.sol\"",
     "ganache": "ganache-cli -m 'electric gift gold bitter boring surface stumble swift peanut adult horse dish'",
-    "coverage": "truffle run coverage"
+    "coverage": "truffle run coverage",
   },
   "author": "",
   "license": "ISC",
