@@ -5,5 +5,13 @@ module.exports = {
       port: 8545,
       network_id: "*" 
     }
+  },
+  plugins : ["solidity-coverage"],
+  mocha: {
+    // timeout: 100000
+    reporter: 'eth-gas-reporter',
+    reporterOptions: {
+        excludeContracts: ['Migrations'],
+    }
   }
 };
