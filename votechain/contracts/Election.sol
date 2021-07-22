@@ -1,4 +1,5 @@
 pragma solidity ^0.5.8;
+pragma experimental ABIEncoderV2;
 
 import "./safemath.sol";
 import "./ownable.sol";
@@ -21,7 +22,8 @@ contract Election is Ownable {
 
     uint16 public candidatesCount = 0;
 
-    event VotedEvent(uint16 indexed _candidateId);
+    event VotedEvent(uint16 indexed _candidateId, bool status);
+    //event candidatecount(uint _candidateCount);
 
     constructor() public {
         addCandidate("Narendra D Modi", "Bharatiya Janata Party");
@@ -32,6 +34,14 @@ contract Election is Ownable {
         addCandidate("NOTA", "None of the above");
     }
 
+    function current_count() public view returns (uint16){
+        return candidatesCount;
+    }
+
+    function candidate(uint16 _cid) public returns (Candidate memory){
+        return candidates[_cid];
+    }
+
     function addCandidate(string memory name, string memory party)
         public
         onlyOwner
@@ -40,17 +50,18 @@ contract Election is Ownable {
         candidates[candidatesCount] = Candidate(
             name,
             party,
-            0,
-            candidatesCount
+            candidatesCount-1,
+            0
         );
     }
 
     function vote(uint16 _candidateId) public {
         require(!hasVoted[msg.sender]);
-        require(_candidateId > 0 && _candidateId <= candidatesCount);
+        require(_candidateId >= 0 && _candidateId <= candidatesCount);
         hasVoted[msg.sender] = true;
         candidates[_candidateId].voteCount++;
         votes[msg.sender] = _candidateId;
-        emit VotedEvent(_candidateId);
+        bool status = hasVoted[msg.sender];
+        emit VotedEvent(_candidateId,status);
     }
 }
