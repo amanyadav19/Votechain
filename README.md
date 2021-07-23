@@ -17,4 +17,5 @@ One of the pre-requisites for running this project is ganache and Metamask exten
 
 
 Some Screenshots:
+![Screenshot from 2021-07-24 01-00-36](https://user-images.githubusercontent.com/70274521/126832538-d8bebc7d-6561-45bc-8ecd-e2964251d800.png)
 
